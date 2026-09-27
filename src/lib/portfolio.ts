@@ -15,21 +15,26 @@ import {
 export const profile = {
   name: "Alif Muhammad Aditya",
   shortName: "Alif",
-  title: "Backend Developer & Cloud Computing Enthusiast",
+  title: "Backend Developer",
   location: "Pekanbaru, Indonesia",
   university: "Universitas Islam Riau",
-  gpa: "3.57",
   email: "alifadityaat@gmail.com",
   linkedin: "https://www.linkedin.com/in/aalifadityaa/",
   github: "https://github.com/syronesdreamland",
   summary:
-    "Final-year Informatics student (GPA 3.57) and Bangkit Academy 2024 graduate specializing in backend development and cloud computing. Experienced in RESTful API design, database management, and AI model integration with Python and Node.js — with production systems running on Vercel and 24/7 Telegram commerce bots.",
+    "Final-year Informatics student and Bangkit Academy 2024 graduate specializing in backend development and cloud computing. Experienced in RESTful API design, database management, and AI model integration with Python and Node.js — with production systems running on Vercel and 24/7 Telegram commerce bots.",
   focus: ["Backend APIs", "Cloud Computing", "AI Integration", "System Design"],
+  typing: [
+    "Backend APIs that ship to production.",
+    "Cloud systems on GCP & AWS.",
+    "LLM orchestration with fallback safety.",
+    "Automation that runs 24/7.",
+  ],
 };
 
 export type ProjectTone = "teal" | "blue" | "amber" | "violet";
 
-export type Project = {
+export type Showcase = {
   slug: string;
   title: string;
   type: string;
@@ -41,11 +46,39 @@ export type Project = {
   tone: ProjectTone;
   icon: LucideIcon;
   href?: string;
+  preview?: string;
   details: string[];
   metrics: { label: string; value: string }[];
 };
 
-export const projects: Project[] = [
+export const projects: Showcase[] = [
+  {
+    slug: "nutrigraph-ai",
+    title: "NutriGraph AI",
+    type: "Undergraduate Thesis System",
+    role: "Full-Stack & AI Engineer",
+    period: "2025 - 2026",
+    summary:
+      "Clinical nutrition recommendation system for Indonesian demographics built on computer vision, a Graph RAG knowledge base, and multi-LLM comparison.",
+    outcome:
+      "Designed and built the complete thesis system: Next.js frontend, Express gateway, FastAPI AI engine, Neo4j knowledge graph, and Redis cache — with an LLM evaluation framework comparing multiple models head-to-head.",
+    tags: ["Next.js", "FastAPI", "Neo4j", "Graph RAG", "Computer Vision", "D3.js"],
+    tone: "teal",
+    icon: Brain,
+    preview: "/previews/nutrigraph.png",
+    details: [
+      "Architected a three-layer system: Next.js 14 frontend, Express.js gateway, and FastAPI AI engine.",
+      "Built a Neo4j knowledge graph of Indonesian food nutrition served through Graph RAG retrieval.",
+      "Implemented food recognition via computer vision to estimate nutrition from photos.",
+      "Ran a multi-LLM evaluation framework comparing model responses for clinical recommendation quality.",
+      "Visualized nutrition knowledge maps and comparisons with D3.js.",
+    ],
+    metrics: [
+      { label: "Scope", value: "Thesis system" },
+      { label: "Core", value: "Graph RAG" },
+      { label: "AI", value: "Multi-LLM" },
+    ],
+  },
   {
     slug: "ternak-monitor",
     title: "Ternak Monitor",
@@ -60,6 +93,7 @@ export const projects: Project[] = [
     tone: "teal",
     icon: Database,
     href: "https://ternak-monitor.vercel.app",
+    preview: "/previews/ternak-monitor.png",
     details: [
       "Built REST API foundation with JWT authentication, livestock and location models, and transaction endpoints on PostgreSQL.",
       "Implemented report pipelines exporting operational data to PDF and XLSX for farm owners.",
@@ -72,6 +106,62 @@ export const projects: Project[] = [
       { label: "AI", value: "Gemini brief" },
     ],
   },
+  {
+    slug: "cybermath-academy",
+    title: "CyberMath Academy",
+    type: "Self-Paced Learning Tracker",
+    role: "Creator & Developer",
+    period: "2026",
+    summary:
+      "Structured learning tracker spanning cybersecurity, mathematics, penetration testing, AWS cloud, web security, and machine learning — ten curriculum paths in one progress dashboard.",
+    outcome:
+      "Designed a progress-first learning system covering 315-item cybersecurity plans, PortSwigger web security labs, Dicoding cloud and ML courses, and Kaggle practice tracks.",
+    tags: ["Cybersecurity", "Web Security", "Cloud", "Machine Learning", "Mathematics"],
+    tone: "violet",
+    icon: ShieldCheck,
+    href: "https://cybermath-masterpiece-one.vercel.app",
+    preview: "/previews/cybermath.png",
+    details: [
+      "Structured ten learning paths across security, math, cloud, and ML with measurable progress tracking.",
+      "Integrated industry labs: PortSwigger SQL injection, authentication, and access control academies.",
+      "Tracked Dicoding AWS Cloud, Machine Learning, and Kaggle Learn curriculum completion.",
+      "Built a 90-day cybersecurity plan with 315 trackable items.",
+    ],
+    metrics: [
+      { label: "Paths", value: "10 tracks" },
+      { label: "Focus", value: "Off + Def security" },
+      { label: "Status", value: "Live on Vercel" },
+    ],
+  },
+  {
+    slug: "go-linktree",
+    title: "go — digital lifestyle",
+    type: "Commerce Landing",
+    role: "Developer & Operator",
+    period: "2026",
+    summary:
+      "Self-hosted link-in-bio storefront for the goyank digital-lifestyle brand: Telegram channel, WhatsApp ordering, and a 24/7 automatic order bot in one glassmorphism page.",
+    outcome:
+      "Built and deployed a production landing that routes customers into the Telegram commerce funnel with the order bot handling purchases automatically.",
+    tags: ["Landing Page", "Telegram", "Commerce", "Automation"],
+    tone: "blue",
+    icon: Network,
+    href: "https://goyank-linktree.vercel.app",
+    preview: "/previews/goyank-bot.png",
+    details: [
+      "Designed a glassmorphism landing consistent with the goyank brand identity.",
+      "Connected Telegram channel, WhatsApp fast-response, and the 24/7 order bot in one flow.",
+      "Deployed self-hosted on Vercel as part of the goyank commerce infrastructure.",
+    ],
+    metrics: [
+      { label: "Status", value: "Live on Vercel" },
+      { label: "Role", value: "Funnel entry" },
+      { label: "Bot", value: "24/7 orders" },
+    ],
+  },
+];
+
+export const experience: Showcase[] = [
   {
     slug: "telegram-commerce-bots",
     title: "Telegram Commerce Bots",
@@ -163,8 +253,8 @@ export const projects: Project[] = [
     icon: Server,
     href: profile.linkedin,
     details: [
-      "Created API surfaces for prediction requests and app integration.",
-      "Worked with model artifacts and cloud deployment constraints.",
+      "Owned server-side design: database schema, secure RESTful API, and ML prediction flow.",
+      "Integrated the .h5 machine learning model into backend prediction endpoints.",
       "Collaborated across mobile, machine learning, and cloud responsibilities in the capstone team.",
     ],
     metrics: [
@@ -188,9 +278,9 @@ export const projects: Project[] = [
     icon: Network,
     href: profile.linkedin,
     details: [
-      "Defined the core marketplace workflow and supporting education/community features.",
-      "Led system blueprinting through DFD Level 1, DFD Level 2, and ERD deliverables.",
-      "Coordinated team execution around a clear product story and technical model.",
+      "Defined the core marketplace workflow with education and community features.",
+      "Led system blueprinting: DFD Level 1 & 2, Context Diagram, ERD, and Use Case Diagram.",
+      "Initiated the joint-shipment consolidation concept to minimize logistics costs for exporters.",
     ],
     metrics: [
       { label: "Recognition", value: "Best project" },
@@ -229,6 +319,7 @@ export type Certification = {
   slug: string;
   title: string;
   issuer: string;
+  date?: string;
   detail: string;
   skills: string[];
   icon: LucideIcon;
@@ -250,6 +341,7 @@ export const certifications: Certification[] = [
     slug: "ccna-cisco-introduction-to-networks",
     title: "CCNAv7: Introduction to Networks",
     issuer: "Cisco Networking Academy",
+    date: "Dec 2024",
     detail:
       "Networking fundamentals: network architecture, routing and switching basics, IP addressing, and network security foundations.",
     skills: ["Networking", "Routing & Switching", "IP Addressing", "Network Security"],
@@ -260,6 +352,7 @@ export const certifications: Certification[] = [
     slug: "menjadi-google-cloud-engineer",
     title: "Menjadi Google Cloud Engineer",
     issuer: "Dicoding Indonesia",
+    date: "Dec 2024",
     detail:
       "Cloud engineering path covering Compute Engine, Kubernetes Engine, networking, storage, and deployment on Google Cloud Platform.",
     skills: ["Compute Engine", "Kubernetes Engine", "GCP Networking", "Cloud Deployment"],
@@ -270,6 +363,7 @@ export const certifications: Certification[] = [
     slug: "belajar-penerapan-machine-learning-gcp",
     title: "Belajar Penerapan Machine Learning dengan Google Cloud",
     issuer: "Dicoding Indonesia",
+    date: "Dec 2024",
     detail:
       "Applied machine learning on Google Cloud: ML workflows, model deployment, and AI services integration.",
     skills: ["Machine Learning", "GCP AI Services", "Model Deployment"],
@@ -277,9 +371,43 @@ export const certifications: Certification[] = [
     href: profile.linkedin,
   },
   {
+    slug: "belajar-dasar-ai",
+    title: "Belajar Dasar AI",
+    issuer: "Dicoding Indonesia",
+    date: "Dec 2024",
+    detail:
+      "Artificial intelligence fundamentals: machine learning concepts, natural language processing, and computer vision basics.",
+    skills: ["AI Fundamentals", "Machine Learning", "NLP", "Computer Vision"],
+    icon: Brain,
+    href: profile.linkedin,
+  },
+  {
+    slug: "belajar-data-science-microsoft-fabric",
+    title: "Belajar Penerapan Data Science dengan Microsoft Fabric",
+    issuer: "Dicoding Indonesia",
+    date: "Dec 2024",
+    detail:
+      "Data science workflows on Microsoft Fabric: data ingestion, transformation, analytics, and visualization.",
+    skills: ["Data Science", "Microsoft Fabric", "Analytics", "Visualization"],
+    icon: Database,
+    href: profile.linkedin,
+  },
+  {
+    slug: "belajar-javascript-dasar",
+    title: "Belajar Dasar Pemrograman JavaScript",
+    issuer: "Dicoding Indonesia",
+    date: "Nov 2024",
+    detail:
+      "JavaScript fundamentals: ES6+ syntax, DOM manipulation, asynchronous programming, and modern tooling.",
+    skills: ["JavaScript", "ES6+", "Async Programming", "DOM"],
+    icon: Code2,
+    href: profile.linkedin,
+  },
+  {
     slug: "belajar-membuat-aplikasi-back-end-gcp",
     title: "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
     issuer: "Dicoding Indonesia",
+    date: "Nov 2024",
     detail:
       "Backend application fundamentals with Google Cloud: RESTful API construction, authentication, and cloud storage integration.",
     skills: ["REST API", "Authentication", "Cloud Storage", "Node.js"],
@@ -287,23 +415,69 @@ export const certifications: Certification[] = [
     href: profile.linkedin,
   },
   {
-    slug: "google-cloud-skills-boost",
-    title: "Google Cloud Skill Badges",
+    slug: "google-cloud-terraform",
+    title: "Terraform for Google Cloud",
     issuer: "Google Cloud",
+    date: "Oct 2024",
     detail:
-      "Hands-on skill badges across Google Cloud infrastructure, networking, security, Kubernetes, Terraform, and load balancing.",
-    skills: ["Compute Engine", "Kubernetes Engine", "Terraform", "Load Balancing", "Cloud Security"],
+      "Infrastructure as Code on Google Cloud: Getting Started with Terraform and Build Infrastructure with Terraform courses.",
+    skills: ["Terraform", "Infrastructure as Code", "Google Cloud"],
+    icon: Cloud,
+    href: profile.linkedin,
+  },
+  {
+    slug: "google-cloud-infrastructure",
+    title: "Google Cloud Infrastructure Series",
+    issuer: "Google Cloud",
+    date: "Oct 2024",
+    detail:
+      "Essential Google Cloud Infrastructure courses: Foundation, Core Services, Elastic Scaling and Automation, plus Preparing for Associate Cloud Engineer.",
+    skills: ["Compute Engine", "Cloud IAM", "Scaling & Automation", "Cloud Architecture"],
     icon: Award,
     href: profile.linkedin,
   },
   {
-    slug: "aws-cloud-practitioner-essentials",
-    title: "AWS Cloud Practitioner Essentials",
-    issuer: "Amazon Web Services",
+    slug: "google-cloud-networking-security",
+    title: "Google Cloud Networking & Security",
+    issuer: "Google Cloud",
+    date: "Oct 2024",
     detail:
-      "Foundation in AWS services, cloud concepts, pricing, architecture, and shared responsibility.",
-    skills: ["AWS", "Cloud Concepts", "Security", "Architecture"],
+      "Build a Secure Google Cloud Network, Develop your Google Cloud Network, and Implement Load Balancing on Compute Engine.",
+    skills: ["VPC Networks", "Cloud Security", "Load Balancing", "Network Design"],
+    icon: ShieldCheck,
+    href: profile.linkedin,
+  },
+  {
+    slug: "google-cloud-computing-foundations",
+    title: "Google Cloud Computing Foundations",
+    issuer: "Google Cloud",
+    date: "Sep 2024",
+    detail:
+      "Four-part foundations series: Cloud Computing Fundamentals, Infrastructure, Networking & Security, and Data, ML, and AI in Google Cloud.",
+    skills: ["Cloud Fundamentals", "Infrastructure", "Data & ML", "AI in GCP"],
     icon: Cloud,
+    href: profile.linkedin,
+  },
+  {
+    slug: "google-cloud-fundamentals-kubernetes",
+    title: "Google Cloud Fundamentals & Kubernetes",
+    issuer: "Google Cloud",
+    date: "Oct 2024",
+    detail:
+      "Google Cloud Fundamentals: Core Infrastructure, Getting Started with Google Kubernetes Engine, and Set Up an App Dev Environment.",
+    skills: ["Core Infrastructure", "Kubernetes Engine", "App Dev Environment"],
+    icon: Cloud,
+    href: profile.linkedin,
+  },
+  {
+    slug: "dicoding-programming-foundations",
+    title: "Programming Foundations Series",
+    issuer: "Dicoding Indonesia",
+    date: "2022",
+    detail:
+      "Foundational programming series: Programming Logic 101, C, Java, Data 101, Web programming basics, and Software Developer career path.",
+    skills: ["Programming Logic", "C", "Java", "Web Fundamentals"],
+    icon: Code2,
     href: profile.linkedin,
   },
   {
@@ -332,12 +506,20 @@ export const skillGroups = [
   {
     title: "AI & Networking",
     icon: Brain,
-    items: ["Groq API", "Llama 3.3", "ML Deployment (.h5)", "Gemini API", "Networking (CCNA)", "Git", "GitHub"],
+    items: ["Groq API", "Llama 3.3", "ML Deployment (.h5)", "Gemini API", "Graph RAG", "Networking (CCNA)", "Git"],
   },
 ];
 
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getExperience(slug: string) {
+  return experience.find((item) => item.slug === slug);
+}
+
+export function getShowcase(slug: string): Showcase | undefined {
+  return getProject(slug) ?? getExperience(slug);
 }
 
 export function getCertification(slug: string) {

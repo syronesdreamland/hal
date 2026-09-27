@@ -1,30 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-background: #F8FAFC;
+  --color-foreground: #0F172A;
+  --color-medical-green: #0D9488;
+  --color-medical-green-light: #CCFBF1;
+  --color-medical-blue: #0284C7;
+  --color-medical-blue-light: #E0F2FE;
+  --color-neutral-50: #F8FAFC;
+  --color-neutral-100: #F1F5F9;
+  --color-neutral-200: #E2E8F0;
+  --color-neutral-300: #CBD5E1;
+  --color-neutral-400: #94A3B8;
+  --color-neutral-500: #64748B;
+  --color-neutral-600: #475569;
+  --color-neutral-700: #334155;
+  --color-neutral-800: #1E293B;
+  --color-neutral-900: #0F172A;
+
+  --font-serif: "Source Serif 4", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --shadow-glow-green: 0 0 24px rgba(13, 148, 136, 0.25);
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.06), 0 12px 36px rgba(0, 0, 0, 0.06);
+
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+  --animate-slide-up: slideUp 0.5s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@keyframes slideUp {
+  0% { opacity: 0; transform: translateY(24px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+
+  ::selection {
+    @apply bg-medical-green/20 text-medical-green;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: "Geist", "Geist Fallback", Arial, Helvetica, sans-serif;
+@layer components {
+  .editorial-container {
+    @apply mx-auto max-w-6xl px-6 lg:px-8;
+  }
+
+  .section-divider {
+    @apply h-[2px] w-12 bg-medical-green;
+  }
+
+  .label-tag {
+    @apply inline-flex items-center px-3 py-1 font-mono text-xs font-medium uppercase tracking-widest rounded-full;
+  }
+
+  .card-elevated {
+    @apply rounded-2xl border border-neutral-200/60 bg-white/70 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 rounded-xl bg-medical-green px-7 py-3 text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-medical-green/90 hover:shadow-glow-green;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 rounded-xl border border-neutral-200 bg-white/60 px-7 py-3 text-sm font-medium tracking-wide text-neutral-700 backdrop-blur-sm transition-all duration-300 hover:border-medical-green hover:text-medical-green;
+  }
+
+  .gradient-mesh {
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(13, 148, 136, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(2, 132, 199, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 0%, rgba(13, 148, 136, 0.04) 0%, transparent 70%);
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-medical-green to-medical-blue bg-clip-text text-transparent;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
 }
