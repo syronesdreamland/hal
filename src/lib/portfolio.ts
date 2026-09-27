@@ -15,13 +15,15 @@ import {
 export const profile = {
   name: "Alif Muhammad Aditya",
   shortName: "Alif",
-  title: "Fullstack Developer & Cloud Computing Enthusiast",
-  location: "Indonesia",
+  title: "Backend Developer & Cloud Computing Enthusiast",
+  location: "Pekanbaru, Indonesia",
   university: "Universitas Islam Riau",
+  gpa: "3.57",
+  email: "alifadityaat@gmail.com",
   linkedin: "https://www.linkedin.com/in/aalifadityaa/",
   github: "https://github.com/syronesdreamland",
   summary:
-    "Backend-focused developer with hands-on cloud computing, REST API, Firebase, and AI integration experience. I like turning practical problems into reliable systems that are clear to use, test, and improve.",
+    "Final-year Informatics student (GPA 3.57) and Bangkit Academy 2024 graduate specializing in backend development and cloud computing. Experienced in RESTful API design, database management, and AI model integration with Python and Node.js — with production systems running on Vercel and 24/7 Telegram commerce bots.",
   focus: ["Backend APIs", "Cloud Computing", "AI Integration", "System Design"],
 };
 
@@ -125,19 +127,20 @@ export const projects: Project[] = [
     title: "GoTanny",
     type: "Capstone Project",
     role: "Full Stack & AI Engineer",
-    period: "Semester 7",
+    period: "Sep 2025 - Jan 2026",
     summary:
-      "Plant disease detection and treatment assistant that combines a web interface, backend services, and LLM-based guidance.",
+      "Intelligent web platform for plant disease detection with AI-based treatment consultation, built as the Semester 7 capstone.",
     outcome:
-      "Designed an LLM orchestration flow with fallback behavior so users can still receive treatment guidance when the primary response path is unavailable.",
-    tags: ["React", "Node.js", "Python", "Firebase", "Groq", "Llama"],
+      "Designed a hybrid backend with Groq Llama 3.3 Versatile as the consultation engine and automatic fallback to Llama 3.1, plus a Node.js microservice for account security and email-based password recovery.",
+    tags: ["React", "Node.js", "Python", "Firebase", "Groq", "Llama 3.3"],
     tone: "teal",
     icon: Brain,
     href: profile.linkedin,
     details: [
-      "Built a practical diagnosis workflow for plant health questions and treatment recommendations.",
-      "Connected frontend flows to backend services and AI response handling.",
-      "Focused on resilience, readable API behavior, and useful outputs for non-technical users.",
+      "Architected the React frontend and a hybrid backend combining Python LLM services with Node.js microservices.",
+      "Integrated Groq Llama 3.3 Versatile as the consultation engine with automatic fallback to Llama 3.1 for service stability.",
+      "Built a dedicated Node.js microservice for account security features and email-based password recovery.",
+      "Used Firebase Authentication and Firestore Database for secure, real-time user data management.",
     ],
     metrics: [
       { label: "Role", value: "Full stack + AI" },
@@ -150,11 +153,11 @@ export const projects: Project[] = [
     title: "DiabeSafe",
     type: "Bangkit Academy Capstone",
     role: "Backend Developer",
-    period: "2024",
+    period: "Jan 2024",
     summary:
-      "Mobile health application for early diabetes risk detection using REST APIs and machine learning model integration.",
+      "Mobile health application for early diabetes risk detection, serving an Android app with secure REST APIs and ML prediction integration.",
     outcome:
-      "Implemented backend endpoints that serve ML predictions to the Android app and support user data flows for the product prototype.",
+      "Owned the entire server side: database schema design, secure RESTful API development, and integration of the .h5 machine learning model into the prediction flow.",
     tags: ["Python", "REST API", "ML Model", "Cloud", ".h5"],
     tone: "blue",
     icon: Server,
@@ -175,11 +178,11 @@ export const projects: Project[] = [
     title: "NUSACO",
     type: "Marketplace Prototype",
     role: "Project Manager",
-    period: "Semester 3",
+    period: "Sep - Dec 2023",
     summary:
-      "Export-import marketplace concept with community learning features and a joint shipment workflow for small sellers.",
+      "Bilingual digital ecosystem bridging local exporters with global importers: marketplace, export-import education hub, and community forum.",
     outcome:
-      "Led planning and system analysis, including DFD, ERD, and product concepts that earned Best Project of Class 2022.",
+      "Led planning, High-Fidelity UI direction, and system blueprinting (DFD Level 1 & 2, Context Diagram, ERD, Use Case) — including a joint-shipment consolidation feature to cut logistics costs. Earned Best Project of Class 2022.",
     tags: ["TypeScript", "DFD", "ERD", "Product Planning", "Team Lead"],
     tone: "amber",
     icon: Network,
@@ -200,11 +203,11 @@ export const projects: Project[] = [
     title: "Retyan Computer",
     type: "Internship Experience",
     role: "IT Support Intern",
-    period: "Internship",
+    period: "Oct 2021 - Jan 2024",
     summary:
-      "Technical support experience covering troubleshooting, computer assembly, CCTV setup, and customer-facing problem solving.",
+      "Technical support internship covering computer hardware maintenance, OS installation, troubleshooting, and CCTV installation over 2+ years.",
     outcome:
-      "Built practical infrastructure instincts by diagnosing hardware and software issues in real service conditions.",
+      "Built practical infrastructure instincts by diagnosing hardware and software issues in real customer service conditions.",
     tags: ["Troubleshooting", "Hardware", "CCTV", "PC Building", "Support"],
     tone: "violet",
     icon: ShieldCheck,
@@ -238,19 +241,59 @@ export const certifications: Certification[] = [
     title: "Bangkit Academy 2024 Graduate",
     issuer: "Bangkit Academy led by Google, Tokopedia, Gojek & Traveloka",
     detail:
-      "Cloud Computing learning path with capstone collaboration, professional readiness, and distinction-level performance noted in the existing portfolio.",
+      "Cloud Computing learning path with capstone collaboration and professional readiness training, completed as a Backend Developer cohort member.",
     skills: ["Cloud Computing", "Backend APIs", "Team Capstone", "Professional Skills"],
     icon: GraduationCap,
     href: profile.linkedin,
   },
   {
+    slug: "ccna-cisco-introduction-to-networks",
+    title: "CCNAv7: Introduction to Networks",
+    issuer: "Cisco Networking Academy",
+    detail:
+      "Networking fundamentals: network architecture, routing and switching basics, IP addressing, and network security foundations.",
+    skills: ["Networking", "Routing & Switching", "IP Addressing", "Network Security"],
+    icon: ShieldCheck,
+    href: profile.linkedin,
+  },
+  {
+    slug: "menjadi-google-cloud-engineer",
+    title: "Menjadi Google Cloud Engineer",
+    issuer: "Dicoding Indonesia",
+    detail:
+      "Cloud engineering path covering Compute Engine, Kubernetes Engine, networking, storage, and deployment on Google Cloud Platform.",
+    skills: ["Compute Engine", "Kubernetes Engine", "GCP Networking", "Cloud Deployment"],
+    icon: Cloud,
+    href: profile.linkedin,
+  },
+  {
+    slug: "belajar-penerapan-machine-learning-gcp",
+    title: "Belajar Penerapan Machine Learning dengan Google Cloud",
+    issuer: "Dicoding Indonesia",
+    detail:
+      "Applied machine learning on Google Cloud: ML workflows, model deployment, and AI services integration.",
+    skills: ["Machine Learning", "GCP AI Services", "Model Deployment"],
+    icon: Brain,
+    href: profile.linkedin,
+  },
+  {
+    slug: "belajar-membuat-aplikasi-back-end-gcp",
+    title: "Belajar Membuat Aplikasi Back-End untuk Pemula dengan Google Cloud",
+    issuer: "Dicoding Indonesia",
+    detail:
+      "Backend application fundamentals with Google Cloud: RESTful API construction, authentication, and cloud storage integration.",
+    skills: ["REST API", "Authentication", "Cloud Storage", "Node.js"],
+    icon: Server,
+    href: profile.linkedin,
+  },
+  {
     slug: "google-cloud-skills-boost",
-    title: "Google Cloud Skills Boost",
+    title: "Google Cloud Skill Badges",
     issuer: "Google Cloud",
     detail:
-      "Training across Compute Engine, networking, security, and cloud architecture fundamentals.",
-    skills: ["Compute Engine", "VPC", "Networking", "Cloud Security"],
-    icon: Cloud,
+      "Hands-on skill badges across Google Cloud infrastructure, networking, security, Kubernetes, Terraform, and load balancing.",
+    skills: ["Compute Engine", "Kubernetes Engine", "Terraform", "Load Balancing", "Cloud Security"],
+    icon: Award,
     href: profile.linkedin,
   },
   {
@@ -260,7 +303,7 @@ export const certifications: Certification[] = [
     detail:
       "Foundation in AWS services, cloud concepts, pricing, architecture, and shared responsibility.",
     skills: ["AWS", "Cloud Concepts", "Security", "Architecture"],
-    icon: Award,
+    icon: Cloud,
     href: profile.linkedin,
   },
   {
@@ -279,17 +322,17 @@ export const skillGroups = [
   {
     title: "Backend",
     icon: Code2,
-    items: ["Python", "Node.js", "Express.js", "Flask", "FastAPI", "REST API"],
+    items: ["Python", "Node.js", "Express.js", "Flask", "FastAPI", "REST API", "Java", "C++"],
   },
   {
     title: "Cloud & Data",
     icon: Database,
-    items: ["Google Cloud", "Firebase Auth", "Firestore", "Compute Engine", "VPC", "SQL"],
+    items: ["Google Cloud Platform", "AWS", "Firebase Auth", "Firestore", "Compute Engine", "Kubernetes Engine", "Terraform", "SQL", "PostgreSQL"],
   },
   {
-    title: "AI & Delivery",
+    title: "AI & Networking",
     icon: Brain,
-    items: ["Groq API", "Llama", ".h5 deployment", "Postman", "Git", "GitHub"],
+    items: ["Groq API", "Llama 3.3", "ML Deployment (.h5)", "Gemini API", "Networking (CCNA)", "Git", "GitHub"],
   },
 ];
 

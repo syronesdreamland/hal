@@ -6,6 +6,7 @@ import {
   BriefcaseBusiness,
   Github,
   Linkedin,
+  Mail,
   MapPin,
   Sparkles,
 } from "lucide-react";
@@ -61,6 +62,8 @@ export default function Home() {
               </span>
               <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700" />
               <span>{profile.university}</span>
+              <span className="h-1 w-1 rounded-full bg-slate-300 dark:bg-slate-700" />
+              <span className="font-medium text-slate-800 dark:text-slate-100">GPA {profile.gpa}</span>
             </div>
             <h1 className="text-4xl font-semibold tracking-tight text-slate-950 dark:text-white sm:text-6xl">
               {profile.title}
@@ -76,6 +79,13 @@ export default function Home() {
               ))}
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
+              <a
+                href={`mailto:${profile.email}`}
+                className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-300 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-100"
+              >
+                <Mail className="h-4 w-4" />
+                {profile.email}
+              </a>
               <a
                 href={profile.linkedin}
                 target="_blank"
