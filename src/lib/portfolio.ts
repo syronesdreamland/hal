@@ -19,7 +19,7 @@ export const profile = {
   location: "Indonesia",
   university: "Universitas Islam Riau",
   linkedin: "https://www.linkedin.com/in/aalifadityaa/",
-  github: "https://github.com/aalifadityaa",
+  github: "https://github.com/syronesdreamland",
   summary:
     "Backend-focused developer with hands-on cloud computing, REST API, Firebase, and AI integration experience. I like turning practical problems into reliable systems that are clear to use, test, and improve.",
   focus: ["Backend APIs", "Cloud Computing", "AI Integration", "System Design"],
@@ -44,6 +44,82 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    slug: "ternak-monitor",
+    title: "Ternak Monitor",
+    type: "Production Full-Stack App",
+    role: "Full-Stack Developer",
+    period: "2026",
+    summary:
+      "Livestock management platform covering livestock records, health, weight, reproduction, feed, sales, and daily financial reporting for farm operations.",
+    outcome:
+      "Shipped a complete React + Express system with JWT auth, PostgreSQL REST API, PDF/XLSX report export, and an AI-powered daily brief, deployed live on Vercel.",
+    tags: ["React 19", "Express", "PostgreSQL", "JWT", "Gemini API", "Vercel"],
+    tone: "teal",
+    icon: Database,
+    href: "https://ternak-monitor.vercel.app",
+    details: [
+      "Built REST API foundation with JWT authentication, livestock and location models, and transaction endpoints on PostgreSQL.",
+      "Implemented report pipelines exporting operational data to PDF and XLSX for farm owners.",
+      "Integrated Gemini-powered Owner Daily Brief that summarizes daily farm conditions automatically.",
+      "Deployed frontend and backend to production with Supabase integration and health-check monitoring.",
+    ],
+    metrics: [
+      { label: "Status", value: "Live on Vercel" },
+      { label: "Stack", value: "React + Express" },
+      { label: "AI", value: "Gemini brief" },
+    ],
+  },
+  {
+    slug: "telegram-commerce-bots",
+    title: "Telegram Commerce Bots",
+    type: "Production Automation",
+    role: "Backend Developer & Operator",
+    period: "2025 - 2026",
+    summary:
+      "Pair of production Telegram storefront bots processing QRIS payments, product catalogs, and digital goods delivery for real customers.",
+    outcome:
+      "Built and operated two independent bots with payment flow, catalog management, transaction logging, and automated backups running as systemd services.",
+    tags: ["Python", "aiogram", "SQLite", "QRIS", "systemd", "Automation"],
+    tone: "blue",
+    icon: Terminal,
+    details: [
+      "Implemented end-to-end purchase flow: catalog browsing, order creation, QRIS payment, and automated goods delivery.",
+      "Managed product catalogs and supplier data with persistent SQLite storage and transaction history.",
+      "Operated both bots 24/7 as systemd services with automated database backup routines.",
+      "Handled real customer transactions end-to-end with admin tooling for fulfillment and support.",
+    ],
+    metrics: [
+      { label: "Bots", value: "2 in production" },
+      { label: "Payment", value: "QRIS integration" },
+      { label: "Uptime", value: "systemd 24/7" },
+    ],
+  },
+  {
+    slug: "ai-ops-automation",
+    title: "AI Ops Automation",
+    type: "Infrastructure & Automation",
+    role: "Systems Engineer",
+    period: "2025 - 2026",
+    summary:
+      "Private automation infrastructure connecting VPS and Windows machines: browser automation, scheduled agents, monitoring loops, and multi-machine orchestration.",
+    outcome:
+      "Designed and run a resilient agent infrastructure with Chrome DevTools Protocol control, SSH bridges across machines, and scheduled job pipelines for research and content operations.",
+    tags: ["Python", "CDP", "SSH", "Cron", "Linux", "Windows"],
+    tone: "violet",
+    icon: Cloud,
+    details: [
+      "Built browser automation pipelines via Chrome DevTools Protocol for data collection and workflow execution.",
+      "Engineered VPS-to-Windows bridges over Tailscale SSH with PowerShell automation for hybrid workflows.",
+      "Scheduled autonomous monitoring and content pipelines with failure handling and state persistence.",
+      "Maintained observability through structured logging, health checks, and automated backups.",
+    ],
+    metrics: [
+      { label: "Scope", value: "Multi-machine" },
+      { label: "Core", value: "CDP + SSH" },
+      { label: "Mode", value: "24/7 scheduled" },
+    ],
+  },
   {
     slug: "gotanny",
     title: "GoTanny",
