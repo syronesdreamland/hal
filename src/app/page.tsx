@@ -22,7 +22,7 @@ export default function Home() {
       <header className="sticky top-0 z-40 border-b border-neutral-200/60 bg-white/75 backdrop-blur-xl">
         <nav className="editorial-container flex items-center justify-between gap-4 py-4">
           <Link href="/" className="font-serif text-lg font-semibold tracking-tight">
-            {profile.name}
+            {profile.shortName}
           </Link>
           <div className="flex items-center gap-2 text-sm">
             <Link href="#projects" className="hidden text-neutral-600 transition hover:text-medical-green sm:inline">
@@ -69,10 +69,14 @@ export default function Home() {
               <span>{profile.university}</span>
             </div>
             <h1 className="font-serif text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl">
-              {profile.title}
-              <br />
-              <TypingText texts={profile.typing} className="text-3xl sm:text-4xl" />
+              {profile.name}
             </h1>
+            <p className="mt-3 font-mono text-lg uppercase tracking-widest text-medical-green">
+              {profile.title}
+            </p>
+            <div className="mt-4 font-serif text-3xl font-semibold sm:text-4xl">
+              <TypingText texts={profile.typing} />
+            </div>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
               {profile.summary}
             </p>
