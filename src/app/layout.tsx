@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Source_Serif_4, Inter, JetBrains_Mono } from "next/font/google";
+import { LangProvider } from "@/lib/i18n";
 import "./globals.css";
 
 const serif = Source_Serif_4({
@@ -30,7 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable} ${mono.variable}`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <LangProvider>{children}</LangProvider>
+      </body>
     </html>
   );
 }

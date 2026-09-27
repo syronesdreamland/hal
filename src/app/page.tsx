@@ -1,4 +1,5 @@
-import Image from "next/image";
+"use client";
+
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -14,9 +15,19 @@ import {
 import { Badge } from "@/components/Badge";
 import { TypingText } from "@/components/TypingText";
 import { ShowcaseCard } from "@/components/ShowcaseCard";
+import { LanguageToggle } from "@/components/LanguageToggle";
 import { certifications, experience, profile, projects, skillGroups } from "@/lib/portfolio";
+import { certificationsId, experienceId, profileId, projectsId } from "@/lib/portfolio-id";
+import { ui, useLang, type Lang } from "@/lib/i18n";
 
 export default function Home() {
+  const { lang } = useLang();
+  const p = lang === "en" ? profile : profileId;
+  const projectData = lang === "en" ? projects : projectsId;
+  const experienceData = lang === "en" ? experience : experienceId;
+  const certData = lang === "en" ? certifications : certificationsId;
+  const t = (entry: { en: string; id: string }) => entry[lang as Lang];
+
   return (
     <div className="gradient-mesh min-h-screen bg-neutral-50 text-neutral-900">
       <header className="sticky top-0 z-40 border-b border-neutral-200/60 bg-white/75 backdrop-blur-xl">
@@ -26,14 +37,15 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-2 text-sm">
             <Link href="#projects" className="hidden text-neutral-600 transition hover:text-medical-green sm:inline">
-              Projects
+              {t(ui.nav.projects)}
             </Link>
             <Link href="#experience" className="hidden text-neutral-600 transition hover:text-medical-green sm:inline">
-              Experience
+              {t(ui.nav.experience)}
             </Link>
             <Link href="#certifications" className="hidden text-neutral-600 transition hover:text-medical-green sm:inline">
-              Certifications
+              {t(ui.nav.certifications)}
             </Link>
+            <LanguageToggle />
             <a
               href={profile.github}
               target="_blank"
@@ -63,25 +75,25 @@ export default function Home() {
             <div className="mb-6 flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-widest text-neutral-500">
               <span className="inline-flex items-center gap-1.5">
                 <MapPin className="h-3.5 w-3.5 text-medical-green" />
-                {profile.location}
+                {p.location}
               </span>
               <span className="h-1 w-1 rounded-full bg-neutral-300" />
-              <span>{profile.university}</span>
+              <span>{p.university}</span>
             </div>
             <h1 className="font-serif text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl">
               {profile.name}
             </h1>
             <p className="mt-3 font-mono text-lg uppercase tracking-widest text-medical-green">
-              {profile.title}
+              {p.title}
             </p>
             <div className="mt-4 font-serif text-3xl font-semibold sm:text-4xl">
-              <TypingText texts={profile.typing} />
+              <TypingText texts={p.typing} />
             </div>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-neutral-600">
-              {profile.summary}
+              {p.summary}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">
-              {profile.focus.map((item) => (
+              {p.focus.map((item) => (
                 <Badge key={item} variant="secondary">
                   {item}
                 </Badge>
@@ -99,10 +111,10 @@ export default function Home() {
                 className="btn-primary"
               >
                 <Linkedin className="h-4 w-4" />
-                Connect on LinkedIn
+                {t(ui.hero.connect)}
               </a>
               <Link href="#projects" className="btn-secondary">
-                View Work
+                {t(ui.hero.viewWork)}
                 <ArrowUpRight className="h-4 w-4" />
               </Link>
             </div>
@@ -110,13 +122,11 @@ export default function Home() {
 
           <div className="justify-self-start lg:justify-self-end">
             <div className="animate-float relative h-64 w-64 overflow-hidden rounded-2xl border border-white/60 shadow-card sm:h-72 sm:w-72">
-              <Image
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
                 src="/foto.jpg"
                 alt={profile.name}
-                fill
-                priority
-                sizes="(min-width: 1024px) 288px, 256px"
-                className="object-cover"
+                className="h-full w-full object-cover"
               />
             </div>
           </div>
@@ -150,15 +160,17 @@ export default function Home() {
           <div className="grid gap-3">
             <p className="label-tag w-fit bg-medical-green-light text-teal-800">
               <FolderGit2 className="mr-2 h-3.5 w-3.5" />
-              Selected Work
+              {t(ui.sections.selectedWork)}
             </p>
-            <h2 className="font-serif text-4xl font-semibold tracking-tight">Projects</h2>
+            <h2 className="font-serif text-4xl font-semibold tracking-tight">
+              {t(ui.sections.projects)}
+            </h2>
             <p className="max-w-2xl text-body-md text-neutral-600">
-              Shipped systems and products — several running live in production right now.
+              {t(ui.sections.projectsSub)}
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {projects.map((project) => (
+            {projectData.map((project) => (
               <ShowcaseCard
                 key={project.slug}
                 item={project}
@@ -173,17 +185,17 @@ export default function Home() {
           <div className="grid gap-3">
             <p className="label-tag w-fit bg-medical-blue-light text-sky-800">
               <BriefcaseBusiness className="mr-2 h-3.5 w-3.5" />
-              Experience
+              {t(ui.sections.experience)}
             </p>
             <h2 className="font-serif text-4xl font-semibold tracking-tight">
-              Experience & Roles
+              {t(ui.sections.experience)}
             </h2>
             <p className="max-w-2xl text-body-md text-neutral-600">
-              Capstones, internships, and production operations — from campus teams to real customers.
+              {t(ui.sections.experienceSub)}
             </p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {experience.map((item) => (
+            {experienceData.map((item) => (
               <ShowcaseCard
                 key={item.slug}
                 item={item}
@@ -198,16 +210,17 @@ export default function Home() {
           <div className="grid gap-3">
             <p className="label-tag w-fit bg-amber-100 text-amber-800">
               <Award className="mr-2 h-3.5 w-3.5" />
-              Proof of Learning
+              {t(ui.sections.proofOfLearning)}
             </p>
-            <h2 className="font-serif text-4xl font-semibold tracking-tight">Certifications</h2>
+            <h2 className="font-serif text-4xl font-semibold tracking-tight">
+              {t(ui.sections.certifications)}
+            </h2>
             <p className="max-w-2xl text-body-md text-neutral-600">
-              {certifications.length} certifications across cloud, networking, AI, and software
-              engineering fundamentals.
+              {t(ui.sections.certificationsSub(certData.length))}
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
-            {certifications.map((certification) => {
+            {certData.map((certification) => {
               const Icon = certification.icon;
               return (
                 <Link
@@ -246,22 +259,21 @@ export default function Home() {
           <div>
             <p className="flex items-center gap-2 font-serif text-lg font-semibold">
               <Sparkles className="h-5 w-5 text-medical-green" />
-              Open to backend, cloud, and AI integration opportunities.
+              {t(ui.cta.open)}
             </p>
             <p className="mt-1.5 text-body-sm text-neutral-500">
-              Best fit: practical product teams that need reliable APIs and cloud-aware
-              implementation.
+              {t(ui.cta.bestFit)}
             </p>
           </div>
           <a href={`mailto:${profile.email}`} className="btn-primary w-fit">
-            Start a Conversation
+            {t(ui.cta.start)}
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </section>
       </main>
 
       <footer className="border-t border-neutral-200/60 py-8 text-center text-body-sm text-neutral-500">
-        © {new Date().getFullYear()} {profile.name}. Built with Next.js.
+        © {new Date().getFullYear()} {profile.name}. {t(ui.footerBuilt)}
       </footer>
     </div>
   );
