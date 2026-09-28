@@ -34,9 +34,9 @@ export const profileId: typeof profile = {
   focus: ["API Backend", "Cloud Computing", "Integrasi AI", "System Design"],
   typing: [
     "Backend Developer.",
-    "Sistem cloud di GCP & AWS.",
-    "Orkestrasi LLM dengan fallback safety.",
-    "Otomasi yang berjalan 24/7.",
+    "AI Automation Engineer.",
+    "Fullstack Developer.",
+    "DevOps & Cloud Engineer.",
   ],
 };
 

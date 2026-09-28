@@ -28,9 +28,9 @@ export const profile = {
   focus: ["Backend APIs", "Cloud Computing", "AI Integration", "System Design"],
   typing: [
     "Backend Developer.",
-    "Cloud systems on GCP & AWS.",
-    "LLM orchestration with fallback safety.",
-    "Automation that runs 24/7.",
+    "AI Automation Engineer.",
+    "Fullstack Developer.",
+    "DevOps & Cloud Engineer.",
   ],
 };
 

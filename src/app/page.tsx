@@ -83,9 +83,6 @@ export default function Home() {
             <h1 className="font-serif text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl">
               {profile.name}
             </h1>
-            <p className="mt-3 font-mono text-lg uppercase tracking-widest text-medical-green">
-              {p.title}
-            </p>
             <div className="mt-4 font-serif text-3xl font-semibold sm:text-4xl">
               <TypingText texts={p.typing} />
             </div>
